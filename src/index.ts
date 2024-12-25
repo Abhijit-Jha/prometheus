@@ -3,13 +3,17 @@ import express from "express"
 import getResonseTime from "./middleware/middleware";
 import client from "prom-client";
 import { getTotalRequest } from "./monitoring/getTotalRequest";
+import { getTotalActiveUsers } from "./monitoring/getTotalActiveUsers";
+import { getCumulativeData } from "./monitoring/getCumulativeData";
 const app = express()
 
 //ugly
 // app.use(getResonseTime);
 
 //
-app.use(getTotalRequest)
+app.use(getTotalRequest);
+app.use(getTotalActiveUsers);
+app.use(getCumulativeData);
 app.get("/users",(req : Request,res:Response)=>{
     const user = {
         "name" : "Abhijit jha",
