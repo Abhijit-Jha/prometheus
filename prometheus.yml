@@ -1,0 +1,12 @@
+# https://projects.100xdevs.com/tracks/prom-graf-1/Prometheus-and-Grafana-10
+global:
+  scrape_interval: 15s # How frequently to scrape targets
+
+scrape_configs:
+  - job_name: 'nodejs-app'
+    static_configs:
+      # - targets: ['localhost:3000']
+      - targets: ['node_app:3000']
+
+#to start the prometheus locally (use docker): docker run -p 9090:9090 -v ./prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+# or docker run -p 9090:9090 -v "C:\Users\abhij\OneDrive\Desktop\newassignment\prometheus\prometheus.yml:/etc/prometheus/prometheus.yml" prom/prometheus
